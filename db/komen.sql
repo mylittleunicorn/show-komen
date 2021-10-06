@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2021 at 05:14 AM
+-- Generation Time: Oct 06, 2021 at 03:48 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -40,7 +40,8 @@ CREATE TABLE `komen` (
 
 INSERT INTO `komen` (`id`, `post_id`, `user_id`, `isi`) VALUES
 (1, 1, 2, 'aaaaaaaa'),
-(2, 2, 2, 'aaaaaaa');
+(2, 2, 2, 'aaaaaaa'),
+(3, 3, 1, 'ini komen di post 3 oleh id user 1');
 
 -- --------------------------------------------------------
 
@@ -49,7 +50,7 @@ INSERT INTO `komen` (`id`, `post_id`, `user_id`, `isi`) VALUES
 --
 
 CREATE TABLE `post` (
-  `id` int(11) NOT NULL,
+  `id_post` int(11) NOT NULL,
   `judul` varchar(120) NOT NULL,
   `post` text NOT NULL,
   `user_id` int(11) NOT NULL
@@ -59,7 +60,7 @@ CREATE TABLE `post` (
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`id`, `judul`, `post`, `user_id`) VALUES
+INSERT INTO `post` (`id_post`, `judul`, `post`, `user_id`) VALUES
 (1, 'Don’t abuse Kotlin’s scope functions', 'Kotlin’s standard library contains several functions whose sole purpose is to execute a block of code within the context of an object.\r\nWhen you call such a function on an object with a lambda expression provided, it forms a temporary scope.', 1),
 (2, 'React 18 — Reactjs Latest Version to Bring Lots of New Features', 'The extensively forecasted Version of React 18 has emerged finally. Its company has ultimately disclosed the baseline version of React 18 and its agenda, although the legal launch is unfinished. This time the team has attempted something unique and published the agenda early to know their user response because developers did not that broadly enjoy the previous version of React 17.', 1),
 (3, 'How to Identify a Pseudo-Smart Person', 'Over my career as a copywriter, I’ve interviewed dozens of top performers. I’ve been privileged to have genuine, deep 1-on-1 conversations with heads of multi-million dollar businesses. These are aggressively smart people, who make me feel humbled just by their presence.\r\nIt’s comical how different these people are from my peers. Many of my acquaintances feel extremely smart. They have zero achievements to back up their ego. Even when every piece of evidence shows that they’re not so smart, they find a smart reason why the world is wrong and they’re right.', 2),
@@ -72,7 +73,7 @@ INSERT INTO `post` (`id`, `judul`, `post`, `user_id`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nama` varchar(120) NOT NULL,
   `pass` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -81,7 +82,7 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nama`, `pass`) VALUES
+INSERT INTO `user` (`id_user`, `nama`, `pass`) VALUES
 (1, 'a', 'a'),
 (2, 'b', 'b');
 
@@ -99,13 +100,13 @@ ALTER TABLE `komen`
 -- Indexes for table `post`
 --
 ALTER TABLE `post`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_post`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -115,19 +116,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `komen`
 --
 ALTER TABLE `komen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
