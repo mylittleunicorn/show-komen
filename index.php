@@ -15,14 +15,14 @@
         <div class="row d-flex justify-content-center">
             <?php
             include "db/koneksi.php";
-            $show = mysqli_query($koneksi, "SELECT * FROM post INNER JOIN user ON post.user_id = user.id");
+            $show = mysqli_query($koneksi, "SELECT id_post, judul, post, id_user, nama FROM post LEFT JOIN user ON post.user_id = user.id_user");
             while ($a = mysqli_fetch_array($show)) {
             ?>
             <div class="card my-md-2">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $a['judul'] ?></h5>
                     <p class="card-text"><?php echo $a['post'] ?></p>
-                    <a href="detail.php?id=<?php echo $a['id'] ?>" class="card-link">Lihat</a>
+                    <a href="detail.php?id=<?php echo $a['id_post'] ?>" class="card-link">Lihat</a>
                     <a href="" class="card-link"><?php echo $a['nama'] ?></a>
                 </div>
             </div>
